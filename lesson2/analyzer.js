@@ -25,7 +25,6 @@ if (argv.help) {
             }
             let winStreak = 0;
             let loosStreak = 0;
-            console.dir(data);
             data.forEach(item => {
                 if (item.winning) {
                     gameResult.winning++;

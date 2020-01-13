@@ -4,7 +4,6 @@ class Logger {
     constructor(filename) {
         this.filename = filename;
     }
-
     write(message) {
         this.read().then(
             (data) => {
