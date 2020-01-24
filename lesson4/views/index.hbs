@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News parser</title>
+</head>
+<body>
+<h1>Поиск новостей</h1>
+<div>
+    Категория: <select name="" id="categories">
+        {{#each categories}}
+        <option value="{{this.href}}" {{#if this.selected}}selected{{/if}}>{{this.text}}</option>
+        {{/each}}
+    </select>
+    Выводить по: 
+    <select name="" id="limits">
+        {{#each counts}}
+        <option value="{{this.value}}" {{#if this.selected}}selected{{/if}}>{{this.value}}</option>
+        {{/each}}
+    </select>
+</div>
+{{> result}}
+</body>
+<script>
+    const getNews = function(categoryId, limit) {
+        document.location.href = `/?categoryId=${categoryId}&limit=${limit}`;
+    }
+    const categories = document.getElementById('categories');
+    const limits =  document.getElementById('limits');
+    categories.addEventListener('change', (event) => {
+        getNews(event.target.selectedIndex, limits.value);
+    });
+    limits.addEventListener('change', (event) => {
+        getNews(categories.selectedIndex, event.target.value);
+    });
+</script>
+</html>
