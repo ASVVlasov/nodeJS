@@ -1,0 +1,23 @@
+app-new-user([(selectedUser)]="selectedUser", (onSave)="getUsers()")
+mat-table.mat-elevation-z8([dataSource]="dataSource", style="width: 100%;")
+    ng-container(matColumnDef="firstName")
+        mat-header-cell(*matHeaderCellDef) Имя
+        mat-cell(*matCellDef="let element") {{element.firstName}}
+    ng-container(matColumnDef="lastName")
+        mat-header-cell(*matHeaderCellDef) Фамилия
+        mat-cell(*matCellDef="let element") {{element.lastName}}
+    ng-container(matColumnDef="nickName")
+        mat-header-cell(*matHeaderCellDef) Ник
+        mat-cell(*matCellDef="let element") {{element.nickName}}
+    ng-container(matColumnDef="email")
+        mat-header-cell(*matHeaderCellDef) E-mail
+        mat-cell(*matCellDef="let element") {{element.email}}
+    ng-container(matColumnDef="age")
+        mat-header-cell(*matHeaderCellDef) Возраст
+        mat-cell(*matCellDef="let element") {{element.age}}
+    ng-container(matColumnDef="delete")
+        mat-header-cell(*matHeaderCellDef)
+        mat-cell.action-td(*matCellDef="let element")
+            button(mat-raised-button, color="warn", (click)="deleteUser($event, element)") Удалить
+    mat-header-row(*matHeaderRowDef="displayedColumns; sticky: true")
+    mat-row(*matRowDef="let row; columns: displayedColumns;", (click)="selectUser(row)", [ngClass]="{selected: row.selected}")

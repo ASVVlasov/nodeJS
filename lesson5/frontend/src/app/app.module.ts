@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTableModule } from '@angular/material/table';
+import { UserModule } from './modules/user/user.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MatTableModule } from '@angular/material/table';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule
+    UserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

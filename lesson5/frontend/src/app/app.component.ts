@@ -1,9 +1,8 @@
 import {
   Component
 } from '@angular/core';
-import {
-  Users
-} from './models/user.model';
+import { User } from './models/user.model';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -11,8 +10,6 @@ import {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  displayedColumns: string[] = ['firstName', 'lastName', 'nickName', 'email', 'age'];
-  dataSource = Users;
-
+  constructor(
+  ) {}
 }
