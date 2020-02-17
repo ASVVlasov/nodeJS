@@ -1,0 +1,19 @@
+form([formGroup]="registerGroup", (ngSubmit)="onSubmit(registerGroup.value)")
+    mat-form-field(appearance="outline")
+        mat-label Логин
+        input(matInput, formControlName="username")
+    br
+    mat-form-field(appearance="outline")
+        mat-label Пароль
+        input(matInput, type="password", formControlName="password")
+    br
+    mat-form-field(appearance="outline")
+        mat-label Имя
+        input(matInput, formControlName="firstName")
+    br
+    mat-form-field(appearance="outline")
+        mat-label Фамилия
+        input(matInput, formControlName="lastName")
+    mat-error {{error}}
+    br
+    button(type="submit", mat-raised-button, color="primary") Зарегистрироваться
