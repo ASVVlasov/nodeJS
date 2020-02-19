@@ -1,0 +1,26 @@
+{
+  "name": "lesson5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^3.0.8",
+    "connect-mongo": "^3.2.0",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "handlebars": "^4.7.3",
+    "mongoose": "^5.8.11",
+    "passport": "^0.4.1",
+    "passport-cookie": "^1.0.6",
+    "passport-local": "^1.0.0"
+  }
+}
