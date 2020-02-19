@@ -1,0 +1,11 @@
+form([formGroup]="loginGroup", (ngSubmit)="onSubmit(loginGroup.value)")
+    mat-form-field(appearance="outline")
+        mat-label Логин
+        input(matInput, formControlName="username")
+    br
+    mat-form-field(appearance="outline")
+        mat-label Пароль
+        input(matInput, type="password", formControlName="password")
+    br
+    button(type="submit", mat-raised-button, color="primary") Войти
+a(routerLink="/register") Новый пользователь?

@@ -1,0 +1,21 @@
+.row
+    .col-12
+        form.d-flex.align-items-center.justify-content-center(
+            [formGroup]="taskGroup", 
+            (ngSubmit)="onSubmit(taskGroup.value)")
+            mat-form-field
+                mat-label Название задачи
+                input(matInput, formControlName="title")
+            button(mat-raised-button, color="warn", type="submit") Добавить
+.row
+    .col-4(*ngFor="let task of tasks; index as i;", style="padding: 15px;")
+        mat-card
+            mat-card-header
+                mat-card-title Задача {{'#' + i}}
+            mat-card-content
+                mat-form-field
+                    mat-label Название
+                    input(matInput, (change)="patchTask(task)", [(ngModel)]="task.title")
+            mat-card-actions.d-flex.justify-content-between
+                mat-checkbox([(ngModel)]="task.completed", (change)="updateTask(task)", color="primary") Завершена
+                button(mat-raised-button, color="warn", (click)="deleteTask(task._id)") Удалить

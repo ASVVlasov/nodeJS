@@ -1,0 +1,15 @@
+.row.justify-content-center
+    .col-8
+        nav(mat-tab-nav-bar)
+            a(
+                mat-tab-link, 
+                mat-stretch-tabs,
+                *ngFor="let link of navLinks",
+                [routerLink]="link.path",
+                routerLinkActive,
+                #rla="routerLinkActive",
+                [active]="rla.isActive") {{link.label}}
+            a(
+                mat-tab-link, 
+                mat-stretch-tabs,
+                (click)="logout()") Выйти
