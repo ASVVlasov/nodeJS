@@ -1,6 +1,7 @@
 import {
-  Component
+  Component, OnInit, OnDestroy
 } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
 
 @Component({
   selector: 'app-root',

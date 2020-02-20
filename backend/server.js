@@ -1,4 +1,6 @@
 const express = require('express');
+const http = require('http');
+const SocketIO = require('socket.io');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -10,6 +12,9 @@ mongoose.connect('mongodb://localhost:32771/insta', {
 });
 
 const app = express();
+const server = http.Server(app);
+const io = SocketIO(server);
+require('./socket')(io);
 
 app.use(express.json());
 app.use(cors());
@@ -19,4 +24,4 @@ const router = require('./routes');
 
 app.use(router);
 
-app.listen(8080);
+server.listen(8080);

@@ -9,12 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TaskComponent } from './modules/task/task.component';
 import { TokenService } from './services/token.service';
 import { CookieService } from 'ngx-cookie-service';
 import { RegisterComponent } from './modules/auth/register/register.component';
 import { TaskModule } from './modules/task/task.module';
 import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/material';
+
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,8 @@ import { MatFormFieldModule, MatInputModule, MatButtonModule } from '@angular/ma
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    TaskModule
+    TaskModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     AuthService,
